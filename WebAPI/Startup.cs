@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using WebAPI.DbOperations;
+using WebAPI.Services;
 
 namespace WebAPI
 {
@@ -36,12 +37,15 @@ namespace WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
             });
-
+//Mssql db bağlantısı
             services.AddDbContext<MovieDbContext>(options =>
              options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
-
+//her bir requeste karşı yeni bir request oluşturması için
             services.AddScoped<IMovieDbContext>(provider => provider.GetService<MovieDbContext>()); 
+            //nesne eşleştirmesi için
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+//loglama işlemi için
+             services.AddSingleton<ILoggerService,ConsoleLogger>();
 
         }
 

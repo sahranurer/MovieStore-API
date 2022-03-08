@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lqW4w3pKjdCP6ZR4L+q3VRRcwF4FHotSo+7HX9PmXysi16i8+XqR2ny9Ymjp57lD7sv0olE46aXb0MPGDsqGYw==",
+  "dgSpecHash": "arBVimEV4HE4O+UeOGnONU37lxPWMHTU5ywG3Yv0aOyNhtXNt8lbxx8K0eNDScMVRgoU12CNYQTF9w1pPMWkzQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lenovo\\Desktop\\Pratikler\\MovieStoreProject\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\lenovo\\Desktop\\Pratikler\\MovieStore-API\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lenovo\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
