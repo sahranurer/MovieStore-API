@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using WebAPI.DbOperations;
 using WebAPI.Services;
@@ -31,21 +34,35 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+                       {
+                           opt.TokenValidationParameters = new TokenValidationParameters()
+                           {
+                               ValidateAudience = true,
+                               ValidateIssuer = true,
+                               ValidateLifetime = true,
+                               ValidateIssuerSigningKey = true,
+                               ValidIssuer = Configuration["Token:Issuer"], // yayinlayici
+                               ValidAudience = Configuration["Token:Audience"], // hedef kitle
+                               IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Token:SecurityKey"])),
+                               ClockSkew = TimeSpan.Zero // Token'i ureten sunucunun zamani ile kullanicilarin zamani farkli ise, bizde 0
+                           };
+                       });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
             });
-//Mssql db bağlantısı
+            //Mssql db bağlantısı
             services.AddDbContext<MovieDbContext>(options =>
              options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
-//her bir requeste karşı yeni bir request oluşturması için
-            services.AddScoped<IMovieDbContext>(provider => provider.GetService<MovieDbContext>()); 
+            //her bir requeste karşı yeni bir request oluşturması için
+            services.AddScoped<IMovieDbContext>(provider => provider.GetService<MovieDbContext>());
             //nesne eşleştirmesi için
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-//loglama işlemi için
-             services.AddSingleton<ILoggerService,ConsoleLogger>();
+            //loglama işlemi için
+            services.AddSingleton<ILoggerService, ConsoleLogger>();
 
         }
 
@@ -58,6 +75,8 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
+
+            app.UseAuthentication(); //Bu olmadan Authorization olmak olmaz öncelik bu kısım
 
             app.UseHttpsRedirection();
 

@@ -128,3 +128,4 @@ C:\Users\lenovo\Desktop\Pratikler\MovieStore-API\WebAPI\obj\Debug\net5.0\WebAPI.
 C:\Users\lenovo\Desktop\Pratikler\MovieStore-API\WebAPI\obj\Debug\net5.0\ref\WebAPI.dll
 C:\Users\lenovo\Desktop\Pratikler\MovieStore-API\WebAPI\obj\Debug\net5.0\WebAPI.pdb
 C:\Users\lenovo\Desktop\Pratikler\MovieStore-API\WebAPI\obj\Debug\net5.0\WebAPI.genruntimeconfig.cache
+C:\Users\lenovo\Desktop\Pratikler\MovieStore-API\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

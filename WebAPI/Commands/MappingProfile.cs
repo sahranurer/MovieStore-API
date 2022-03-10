@@ -1,6 +1,8 @@
 using AutoMapper;
 using WebAPI.Application.ActorOperations.Commands;
 using WebAPI.Application.ActorOperations.Queries;
+using WebAPI.Application.CustomerOperations.Commands;
+using WebAPI.Application.CustomerOperations.Queries;
 using WebAPI.Application.DirectorOperations.Commands.CreateDirector;
 using WebAPI.Application.DirectorOperations.Queries;
 using WebAPI.Application.MovieOperations.Commands;
@@ -32,7 +34,9 @@ namespace WebAPI.Commands
             .ForMember(dest=>dest.Director,opt=>opt.MapFrom(src=>src.Director.Name)); 
             
            
-            
+            CreateMap<Customer,CustomerViewModel>()
+              .ForMember(dest=>dest.Movie,opt=>opt.MapFrom(src=>src.Movie.Name));
+            CreateMap<CreateCustomerViewModel,Customer>();  
         }
     }
 }

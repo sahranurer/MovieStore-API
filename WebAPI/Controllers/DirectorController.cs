@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Application.DirectorOperations.Commands;
 using WebAPI.Application.DirectorOperations.Commands.CreateDirector;
@@ -7,7 +8,7 @@ using WebAPI.DbOperations;
 
 namespace WebApi.Controllers
 {
-    
+    [Authorize]
     [ApiController]
     [Route("[controller]s")]
     public class DirectorController : ControllerBase
