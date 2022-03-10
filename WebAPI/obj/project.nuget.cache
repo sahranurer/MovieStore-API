@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "YcfvrbQUl3fOGsrrmDHTboT+vQ/k3z6ICSKmhZ5FeezlL4x36lX1OSq2MIGrfsr3Oelg5K5XUsCu/cnGoeCI1w==",
+  "dgSpecHash": "K/0PmFX8NyfDk6A7OtkRQyopR09VYV8U8H0mtZ6bcOpt73/qU83OM2INC8NjpvrsJtFYUepxq0oYb0bno0mQCQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\lenovo\\Desktop\\Pratikler\\MovieStore-API\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lenovo\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.0\\microsoft.aspnetcore.authentication.jwtbearer.5.0.0.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
