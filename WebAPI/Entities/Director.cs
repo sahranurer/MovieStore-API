@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAPI.Entities
@@ -9,5 +10,8 @@ namespace WebAPI.Entities
     public string Name { get; set; }
     public string Surname { get; set; }
     public string TheMovieDirected { get; set; }
+
+  
+
    }
 }

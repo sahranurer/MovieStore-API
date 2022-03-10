@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using WebAPI.DbOperations;
 
 namespace WebAPI.Application.DirectorOperations.Queries
@@ -19,7 +20,7 @@ namespace WebAPI.Application.DirectorOperations.Queries
         }
 
         public List<DirectorViewModel> Handle(){
-            var directorList = _context.Directors.OrderBy(x=>x.DirectorID).ToList();
+            var directorList = _context.Directors.ToList();
             List<DirectorViewModel> dvm = _mapper.Map<List<DirectorViewModel>>(directorList);
             return dvm;
         }
@@ -32,7 +33,10 @@ namespace WebAPI.Application.DirectorOperations.Queries
     {
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string TheMovieDirected { get; set; }
+        
+         public string TheMovieDirected { get; set; }
+
+         //public List<Mo
     }
 
 }

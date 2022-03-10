@@ -29,8 +29,7 @@ namespace WebAPI.Application.DirectorOperations.Commands
             //Eğer gelen veri boş ise direk var olan veriye eşitle
             director.Name = string.IsNullOrEmpty(Model.Name.Trim()) ? director.Name : Model.Name;
             director.Surname = string.IsNullOrEmpty(Model.Surname.Trim()) ? director.Surname : Model.Surname;
-            director.TheMovieDirected = string.IsNullOrEmpty(Model.TheMovieDirected.Trim()) ? director.TheMovieDirected : Model.TheMovieDirected;
-
+            
             _context.SaveChanges();
         }
 
@@ -42,6 +41,6 @@ namespace WebAPI.Application.DirectorOperations.Commands
 
     public string Name { get; set; }
     public string Surname { get; set; }
-    public string TheMovieDirected { get; set; }
+   
     }
 }
