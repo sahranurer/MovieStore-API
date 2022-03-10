@@ -69,6 +69,7 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -76,13 +77,15 @@ namespace WebAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
 
-            app.UseAuthentication(); //Bu olmadan Authorization olmak olmaz öncelik bu kısım
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseAuthentication(); //Bu olmadan Authorization olmak olmaz öncelik bu kısım
+
 
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
